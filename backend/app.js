@@ -2,13 +2,12 @@ const express = require('express');
 const app = express();
 const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
-const fileUpload = require("express-fileupload");
 
 // Middleware to parse cookies
 app.use(express.json());
 app.use(cookieParser());
+app.use('/', express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
-app.use(fileUpload({useTempFiles: true}));
 
 // test route
 app.use("/test", (req, res) => {
@@ -21,6 +20,10 @@ if(process.env.NODE_ENV !== 'production') {
     path : "backend/config/.env"
   });
 }
+
+// Importing routes
+const user = require('./controller/user-controller');
+app.use('/api/v2', user);
 
 // Middleware for error handling
 const errorMiddleware = require('./middleware/Error');
