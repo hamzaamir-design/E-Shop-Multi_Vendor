@@ -8,7 +8,11 @@ const cors = require('cors');
 // Middleware to parse cookies
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:5173"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
 app.use('/', express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 // app.use(fileUpload({useTempFiles: true}));
