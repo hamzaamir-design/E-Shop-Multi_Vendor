@@ -14,23 +14,19 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios
-      .post(
+    try {
+      const res = await axios.post(
         `${server}/user/login-user`,
-        {
-          email,
-          password,
-        },
+        { email, password },
         { withCredentials: true }
-      )
-      .then((res) => {
-        toast.success("Login Success!");
-        navigate("/");
-        window.location.reload(true); 
-      })
-      .catch((err) => {
-        toast.error(err.response.data.message);
-      });
+      );
+      toast.success("Login Success!");
+      navigate("/");
+      // window.location.reload(true);
+    } catch (err) {
+      toast.error(err?.response?.data?.message || err.message);
+    }
+
   };
 
   return (

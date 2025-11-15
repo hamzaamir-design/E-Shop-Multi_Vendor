@@ -9,6 +9,7 @@ const sendMail = require('../utils/sendMail');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
 const jwt = require('jsonwebtoken');
+const { isAuthenticated } = require('../middleware/auth');
 
 // create user
 router.post("/create-user", upload.single("file"), async (req, res, next) => {
