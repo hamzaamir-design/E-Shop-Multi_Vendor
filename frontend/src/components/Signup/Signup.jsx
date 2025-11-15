@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { server } from "../../server";
 
 
@@ -35,33 +36,30 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const newForm = new FormData();
-      newForm.append("file", avatar);
-      newForm.append("name", name);
-      newForm.append("email", email);
-      newForm.append("password", password);
+    const newForm = new FormData();
+    newForm.append("file", avatar);
+    newForm.append("name", name);
+    newForm.append("email", email);
+    newForm.append("password", password);
 
-      const config = {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      };
-      axios.post(`${server}/user/create-user`, newForm, config)
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+    axios.post(`${server}/user/create-user`, newForm, config)
 
-        .then((res) => {
-          console.log("Response:", res.data);
-          alert("User created successfully!", res.message);
-        })
+      .then((res) => {
+        toast.success(res.data.message);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setAvatar();
+      })
 
-        .catch((err) => {
-          console.error(err);
-        });
-
-    } catch (error) {
-      console.error("Axios Error:", error.response?.data || error.message);
-      alert("Error: " + (error.response?.data?.message || error.message));
-    }
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      });
   };
 
   return (
