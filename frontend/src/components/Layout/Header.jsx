@@ -156,7 +156,7 @@ const Header = () => {
                         <div className="relative cursor-pointer">
                             <AiOutlineShoppingCart size={30} className="text-white" />
                             <span className="absolute -top-1 -right-1 flex items-center justify-center w-4 h-4 bg-[#3bc177] text-white text-[10px] rounded-full font-semibold">
-                                1
+                                0
                             </span>
                         </div>
 
