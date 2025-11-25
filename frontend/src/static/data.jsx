@@ -271,7 +271,7 @@ export const productData = [
     image_Url: [
       {
         public_id: "test",
-        url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBOjDspemdh_bJTz4gWrF878o3LCQFJMph0g&s",
       },
       {
         public_id: "test",
@@ -331,7 +331,7 @@ export const productData = [
     image_Url: [
       {
         public_id: "test",
-        url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBOjDspemdh_bJTz4gWrF878o3LCQFJMph0g&s",
       },
       {
         public_id: "test",
@@ -393,7 +393,7 @@ export const productData = [
     image_Url: [
       {
         public_id: "test",
-        url: "https://mirzacdns3.s3.ap-south-1.amazonaws.com/cache/catalog/RLV0015/2-800x800.jpg",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdJyDinOqM4L06D--rD59H6WJyagWu_KCnLQ&s",
       },
       {
         public_id: "test",
