@@ -87,7 +87,7 @@ const ProductCard = ({ data, isEvent }) => {
                 </Link>
 
                 <Link to={`/product/${product_name}`}>
-                    <h4 className="pb-3 font-[500]">
+                    <h4 className="pb-3 font-500">
                         {data.name.length > 40 ? data.name.slice(0, 40) + "..." : data.name}
                     </h4>
                 </Link>
@@ -122,7 +122,7 @@ const ProductCard = ({ data, isEvent }) => {
                             {data.price ? data.price + "$" : null}
                         </h4>
                     </div>
-                    <span className="font-[400] text-17px text-[#68d284]">
+                    <span className="font-400 text-17px text-[#68d284]">
                         {data.total_sell} sold
                     </span>
                 </div>
