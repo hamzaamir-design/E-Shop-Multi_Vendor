@@ -2,8 +2,10 @@ import LoginPage from './pages/Loginpage.jsx';
 import SignupPage from './pages/SignupPage.jsx';
 import ActivationPage from './pages/ActivationPage';
 import HomePage from './pages/HomePage';
-import ProductsPage from './pages/ProductsPage.jsx';
-import BestSellingPage from "./pages/BestSelingPage.jsx"
+import ProductsPage from './pages/ProductsPage';
+import BestSellingPage from "./pages/BestSelingPage";
+import EventsPage from './pages/EventsPage';
+import FAQPage from './pages/FAQPage.jsx';
 
 export {
     LoginPage,
@@ -12,4 +14,6 @@ export {
     HomePage,
     ProductsPage,
     BestSellingPage,
+    EventsPage,
+    FAQPage,
 };

@@ -13,12 +13,11 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 
-const Header = () => {
+const Header = ({ activeHeading }) => {
     const [searchTerm, setSearchTerm] = React.useState("");
     const [searchData, setSearchData] = React.useState([]);
     const [dropDown, setDropDown] = React.useState(false);
-    const [active, setActive] = React.useState(false);
-    const [activeHeading, setActiveHeading] = React.useState(1);
+    const [active, setActive] = React.useState(false); // scroll logic
 
     const handleSearchChange = (e) => {
         const term = e.target.value;
@@ -36,6 +35,8 @@ const Header = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+
 
     return (
         <>
@@ -139,7 +140,7 @@ const Header = () => {
                     </div>
 
                     {/* NAVBAR */}
-                    <Navbar active={activeHeading} setActiveHeading={setActiveHeading} />
+                    <Navbar active={activeHeading} />
 
                     {/* ACTION ICONS */}
                     <div className="flex items-center gap-6">

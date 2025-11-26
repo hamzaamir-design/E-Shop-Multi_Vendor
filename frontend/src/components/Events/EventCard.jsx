@@ -2,9 +2,10 @@ import React from "react";
 import styles from "../../styles/styles";
 import CountDown from "./CountDown";
 
-const EventCard = () => {
+const EventCard = ({active}) => {
     return (
-        <div className="w-full bg-white rounded-2xl transition-all duration-300 overflow-hidden lg:flex">
+        <div className={`w-full bg-white rounded-2xl ${active ? "unset" : "mb-12"}} transition-all duration-300 overflow-hidden lg:flex`
+        }>
 
             {/* Image Section */}
             <div className="w-full lg:w-1/2 h-64 lg:h-auto">
