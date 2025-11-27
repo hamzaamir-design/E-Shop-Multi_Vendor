@@ -12,8 +12,11 @@ import { CgProfile } from "react-icons/cg";
 import { BiMenuAltLeft } from "react-icons/bi";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
+import { useSelector } from "react-redux";
+import { backend_url } from "../../server";
 
 const Header = ({ activeHeading }) => {
+    const { isAuthenticated, user, loading } = useSelector((state) => state.user)
     const [searchTerm, setSearchTerm] = React.useState("");
     const [searchData, setSearchData] = React.useState([]);
     const [dropDown, setDropDown] = React.useState(false);
@@ -35,8 +38,6 @@ const Header = ({ activeHeading }) => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-
 
     return (
         <>
@@ -163,9 +164,22 @@ const Header = ({ activeHeading }) => {
 
                         {/* PROFILE ICON */}
                         <div className="relative cursor-pointer">
-                            <Link to='/Login'>
-                                <CgProfile size={30} className="text-white" />
-                            </Link>
+                            {isAuthenticated ? (
+                                <div>
+                                    <Link to="/profile">
+                                        <img
+                                            src={`${backend_url}${user.avatar?.url}`}
+                                            alt="User Avatar"
+                                            className="w-[35px] h-[35px] rounded-full object-cover"
+                                        />
+                                    </Link>
+                                </div>
+                            ) : (
+                                <Link to='/Login'>
+                                    <CgProfile size={30} className="text-white" />
+                                </Link>
+                            )}
+
                         </div>
 
                     </div>
