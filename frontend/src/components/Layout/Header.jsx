@@ -14,13 +14,16 @@ import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
 import { backend_url } from "../../server";
+import Cart from "../cart/Cart"
 
 const Header = ({ activeHeading }) => {
     const { isAuthenticated, user, loading } = useSelector((state) => state.user)
     const [searchTerm, setSearchTerm] = React.useState("");
     const [searchData, setSearchData] = React.useState([]);
     const [dropDown, setDropDown] = React.useState(false);
-    const [active, setActive] = React.useState(false); // scroll logic
+    const [active, setActive] = React.useState(false);
+    const [openCart, setOpenCart] = React.useState(false);
+    const [openWishlist, setOpenWishList] = React.useState(false);
 
     const handleSearchChange = (e) => {
         const term = e.target.value;
@@ -155,7 +158,10 @@ const Header = ({ activeHeading }) => {
                         </div>
 
                         {/* CART ICON */}
-                        <div className="relative cursor-pointer">
+                        <div
+                            className="relative cursor-pointer"
+                            onClick ={() => setOpenCart(true)}
+                        >
                             <AiOutlineShoppingCart size={30} className="text-white" />
                             <span className="absolute -top-1 -right-1 flex items-center justify-center w-4 h-4 bg-[#3bc177] text-white text-[10px] rounded-full font-semibold">
                                 0
@@ -181,7 +187,12 @@ const Header = ({ activeHeading }) => {
                             )}
 
                         </div>
-
+                        {/* Cart PopUp */}
+                        {
+                            openCart ? (
+                                <Cart setOpenCart={ setOpenCart} />
+                            ): null
+                        }
                     </div>
 
                 </div>
