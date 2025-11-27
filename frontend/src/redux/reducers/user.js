@@ -23,6 +23,12 @@ export const userReducer = createReducer(initialState, (builder) => {
             state.user = null;
             state.error = action.payload;
         })
+        .addCase("LoadUserFail", (state, action) => {
+            state.loading = false;
+            state.isAuthenticated = false;
+            state.user = null;
+            state.error = action.payload;
+        })
         .addCase("ClearErrors", (state) => {
             state.error = null;
         });

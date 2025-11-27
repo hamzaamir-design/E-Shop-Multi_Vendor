@@ -6,8 +6,10 @@ const sendToken = (user, statusCode, res) => {
   const options = {
     expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
     httpOnly: true,
-    sameSite: "none",
-    secure: true,
+    // In production we want cross-site cookies (sameSite: 'none') with secure flag.
+    // In development (localhost over http) enable a more permissive policy so cookies are set.
+    // sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    // secure: process.env.NODE_ENV === 'production',
   };
 
   res.status(statusCode).cookie("token", token, options).json({
