@@ -56,7 +56,7 @@ const Cart = ({ setOpenCart }) => {
                 </div>
                 <div className="px-5 mb-3">
                     {/* CheckOut */}
-                    <Link to="/checkOut"/>
+                    <Link to="/checkOut" />
                     <div className={`h-[45px] flex items-center justify-center w-[100%] bg-[#e44343] rounded-[5px] cursor-pointer`}>
                         <h1 className='text-white text-[18px] font-600'>Checkout Now (USD$1000)</h1>
                     </div>
@@ -99,7 +99,7 @@ const CartSingle = ({ data }) => {
                         US${totalPrice}
                     </h4>
                 </div>
-                <RxCross1 className='cursor-pointer'/>
+                <RxCross1 className='cursor-pointer' />
             </div>
         </div>
     )
