@@ -62,6 +62,10 @@ const ProductCard = ({ data, isEvent }) => {
     //         }
     //     }
     // };
+    const handleAddToCart = () => {
+        toast.success("Added to cart!");
+    };
+
 
     return (
         <>
@@ -156,7 +160,7 @@ const ProductCard = ({ data, isEvent }) => {
                     <AiOutlineShoppingCart
                         size={25}
                         className="cursor-pointer absolute right-2 top-24"
-                        onClick={() => setOpen(!open)}
+                        onClick={handleAddToCart}
                         color="#444"
                         title="Add to cart"
                     />

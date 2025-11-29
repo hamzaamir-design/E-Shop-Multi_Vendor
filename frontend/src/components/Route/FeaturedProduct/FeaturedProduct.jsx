@@ -4,6 +4,7 @@ import styles from "../../../styles/styles";
 import ProductCard from '../ProductCard/ProductCard';
 
 const FeaturedProduct = () => {
+  
     return (
         <div>
             <div className={`${styles.section} mt-10`}>

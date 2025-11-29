@@ -15,6 +15,7 @@ import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
 import { backend_url } from "../../server";
 import Cart from "../cart/Cart"
+import Wishlist from "../Wishlist/Wishlist"
 
 const Header = ({ activeHeading }) => {
     const { isAuthenticated, user, loading } = useSelector((state) => state.user)
@@ -23,7 +24,7 @@ const Header = ({ activeHeading }) => {
     const [dropDown, setDropDown] = React.useState(false);
     const [active, setActive] = React.useState(false);
     const [openCart, setOpenCart] = React.useState(false);
-    const [openWishlist, setOpenWishList] = React.useState(false);
+    const [openWishlist, setOpenWishlist] = React.useState(false);
 
     const handleSearchChange = (e) => {
         const term = e.target.value;
@@ -150,7 +151,9 @@ const Header = ({ activeHeading }) => {
                     <div className="flex items-center gap-6">
 
                         {/* HEART ICON */}
-                        <div className="relative cursor-pointer">
+                        <div className="relative cursor-pointer"
+                        onClick={() => setOpenWishlist(true)}
+                        >
                             <AiOutlineHeart size={30} className="text-white" />
                             <span className="absolute -top-1 -right-1 flex items-center justify-center w-4 h-4 bg-[#3bc177] text-white text-[10px] rounded-full font-semibold">
                                 0
@@ -192,6 +195,12 @@ const Header = ({ activeHeading }) => {
                             openCart ? (
                                 <Cart setOpenCart={ setOpenCart} />
                             ): null
+                        }
+                        {/* WishLish PopUp */}
+                        {
+                            openWishlist ? (
+                                <Wishlist setOpenWishlist={ setOpenWishlist} />
+                            ) : null
                         }
                     </div>
 
